@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: workwork_development
+  database: workwork_dev
+  username: workwork
+  password: 123456
+  host: workwork-dev-db
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.

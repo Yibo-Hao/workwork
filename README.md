@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### init dev-database 
 
-Things you may want to cover:
+```
+docker run -d --name workwork-dev-db -e POSTGRES_USER=workwork -e POSTGRES_PASSWORD=123456 -e POSTGRES_DB=workwork_dev -e PGDATA=/var/lib/postgresql/data/pgdata -v workwork-data:/var/lib/postgresql/data --network=network1 postgres:14
+```
 
-* Ruby version
+### init dev-database 
 
-* System dependencies
+```
+docker start workwork-dev-db
+```
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
