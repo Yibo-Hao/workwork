@@ -46,7 +46,7 @@ fi
 title 'docker build'
 docker build $root -t workwork:$version
 
-if [ "$(docker ps -aq -f name=^workwork-prod$)" ]; then
+if [ "$(docker ps -aq -f name=^${container_name}$)" ]; then
   title 'docker rm'
   docker rm -f $container_name
 fi
