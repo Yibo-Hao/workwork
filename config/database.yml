@@ -85,5 +85,6 @@ test:
 production:
   <<: *default
   database: workwork_production
+  host: <%= ENV["DB_HOST"] %>
   username: workwork
-  password: <%= ENV["WORKWORK_DATABASE_PASSWORD"] %>
+  password: <%= ENV["DB_PASSWORD"] %>

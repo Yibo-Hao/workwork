@@ -17,3 +17,8 @@ docker start workwork-dev-db
 ```
 bin/rails db:migration
 ```
+
+### deploy-production
+```
+bin/deploy
+```
