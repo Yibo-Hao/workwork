@@ -29,21 +29,21 @@ tar --exclude="tmp/cache/*" --exclude="tmp/deploy_cache/*" -czv -f $dist *
 title '创建远程目录'
 ssh $user@$ip "mkdir -p $deploy_dir/vendor"
 
-# title '上传压缩文件'
+title '上传压缩文件'
 scp $dist $user@$ip:$deploy_dir/
 yes | rm $dist
 scp $gemfile $user@$ip:$deploy_dir/
 scp $gemfile_lock $user@$ip:$deploy_dir/
 scp -r $vendor_cache_dir $user@$ip:$deploy_dir/vendor/
 
-# title '上传 Dockerfile'
+title '上传 Dockerfile'
 scp $current_dir/../config/host.Dockerfile $user@$ip:$deploy_dir/Dockerfile
 
-# title '上传 setup 脚本'
+title '上传 setup 脚本'
 scp $current_dir/setup_remote $user@$ip:$deploy_dir/
 
-# title '上传版本号'
+title '上传版本号'
 ssh $user@$ip "echo $time > $deploy_dir/version"
 
-# title '执行远程脚本'
+title '执行远程脚本'
 ssh $user@$ip "export version=$time; /bin/bash $deploy_dir/setup_remote"
